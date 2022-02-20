@@ -46,4 +46,17 @@ public class JDBCClientH2 implements JDBCBClient {
             return null;
         }
     }
+
+    public void modification(Clients clients) {
+        JDBCBibliotheque.modification("UPDATE CLIENTS SET " +
+                "nom='" + clients.getNom() +
+                "', prenom='" + clients.getPrenom() +
+                "', rue='" + clients.getRue() +
+                "', ville='" + clients.getVille() +
+                "', codePostal='" + clients.getCodePostal() +
+                "', numeroTelephone='" + clients.getNumeroTelephone() +
+                "', dateInscription='" + clients.getDateInscriptionChaine() +
+                "', nbrEmpruntEnCour=" + clients.getNbrEmpruntEnCour() +
+                " WHERE id=" + clients.getId() + ";");
+    }
 }

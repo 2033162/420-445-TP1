@@ -8,6 +8,10 @@ public class ServiceClient {
         new JDBCClientH2().enregistrer(clients);
     }
 
+    public void modification(Clients clients) {
+        new JDBCClientH2().modification(clients);
+    }
+
     public Clients getClient(long clientId) {
         return new JDBCClientH2().getClients(clientId);
     }

@@ -8,6 +8,10 @@ public class ServiceEmploye {
         new JDBCEmployeH2().enregistrer(employe);
     }
 
+    public void modification(Employe employe) {
+        new JDBCEmployeH2().modification(employe);
+    }
+
     public Employe getEmploye(long employeId) {
         return new JDBCEmployeH2().getEmploye(employeId);
     }

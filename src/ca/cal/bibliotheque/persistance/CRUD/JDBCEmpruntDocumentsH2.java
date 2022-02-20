@@ -1,9 +1,6 @@
-package ca.cal.bibliotheque.persistance;
+package ca.cal.bibliotheque.persistance.CRUD;
 
 import ca.cal.bibliotheque.model.EmpruntDocuments;
-import ca.cal.bibliotheque.persistance.CRUD.JDBCBibliotheque;
-import ca.cal.bibliotheque.persistance.CRUD.JDBCClientH2;
-import ca.cal.bibliotheque.persistance.CRUD.JDBCDocumentsH2;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
 import ca.cal.bibliotheque.persistance.DB.JDBCException;
 

@@ -9,15 +9,15 @@ public class EmpruntDocuments {
     private final Date dateExpire;
     private final int nbrRappel;
     private final Clients client;
-    private final Documents documents;
+    private final Documents document;
 
-    public EmpruntDocuments(long id, Date dateInitial, Date dateExpire, int nbrRappel, Clients client, Documents documents) {
+    public EmpruntDocuments(long id, Date dateInitial, Date dateExpire, int nbrRappel, Clients client, Documents document) {
         this.id = id;
         this.dateInitial = dateInitial;
         this.dateExpire = dateExpire;
         this.nbrRappel = nbrRappel;
         this.client = client;
-        this.documents = documents;
+        this.document = document;
     }
 
     public long getId() {
@@ -29,7 +29,7 @@ public class EmpruntDocuments {
     }
 
     public Documents getDocument() {
-        return documents;
+        return document;
     }
 
     public Date getDateInitial() {

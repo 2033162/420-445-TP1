@@ -17,4 +17,16 @@ public class JDBCBibliotheque {
             JDBCException.handleException(e);
         }
     }
+
+    public static void modification(String sql) {
+        try(Connection conn = DriverManager.getConnection(JDBCConfig.getDbUrl(),JDBCConfig.getUSER(),JDBCConfig.getPASS());
+            Statement stmt = conn.createStatement();
+        ) {
+            System.out.println("Updating records into the table...");
+            stmt.executeUpdate(sql);
+            System.out.println("Updated records into the table...");
+        } catch (SQLException e) {
+            JDBCException.handleException(e);
+        }
+    }
 }

@@ -36,4 +36,12 @@ public class JDBCEmployeH2 implements JDBCEmploye {
             return null;
         }
     }
+
+    public void modification(Employe employe) {
+        JDBCBibliotheque.modification("UPDATE EMPLOYE SET " +
+                "nom='" + employe.getNom() +
+                "', prenom='" + employe.getPrenom() +
+                "', fonction='" + employe.getFonction() + "'" +
+                " WHERE id=" + employe.getId() + ";");
+    }
 }

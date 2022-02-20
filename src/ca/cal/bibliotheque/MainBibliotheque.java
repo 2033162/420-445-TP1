@@ -11,7 +11,7 @@ public class MainBibliotheque {
     public static void main(String[] args) throws ParseException {
         //JDBCCreateDB.createDatabase();
 
-        var client = new Clients(4,
+        /*var client = new Clients(6,
                 "John",
                 "Smith",
                 "daragon",
@@ -22,8 +22,13 @@ public class MainBibliotheque {
                 0);
         ServiceClient serviceClient = new ServiceClient();
         serviceClient.enregistrer(client);
-        var client2 = serviceClient.getClient(4L);
-        System.out.println(client2);
+        var client2 = serviceClient.getClient(6L);
+        System.out.println(client2);*/
+
+        /*client.setRue("rancour");
+        serviceClient.modification(client);
+        var client3 = serviceClient.getClient(6L);
+        System.out.println(client3);*/
 
 
 
@@ -64,7 +69,7 @@ public class MainBibliotheque {
 
 
 
-        var document3 = new Documents(6,
+        /*var document3 = new Documents(6,
                 EtatDocument.EMPRUNTE,
                 Documents.C_LIVRE,
                 "avengers",
@@ -78,18 +83,23 @@ public class MainBibliotheque {
         ServiceLivre serviceLivre = new ServiceLivre();
         serviceLivre.enregistrer(livre);
         var livre2 = serviceLivre.getLivre(6L);
-        System.out.println(livre2);
+        System.out.println(livre2);*/
 
 
 
-        /*var employe = new Employe(1,
+        /*var employe = new Employe(2,
                 "bernadette",
                 "carmier",
                 Fonction.GESTIONNAIRE);
         ServiceEmploye serviceEmploye = new ServiceEmploye();
         serviceEmploye.enregistrer(employe);
-        var employe2 = serviceEmploye.getEmploye(1L);
+        var employe2 = serviceEmploye.getEmploye(2L);
         System.out.println(employe2);*/
+
+        /*employe.setFonction(Fonction.PREPOSE);
+        serviceEmploye.modification(employe);
+        var employe3 = serviceEmploye.getEmploye(2L);
+        System.out.println(employe3);*/
 
 
 
@@ -104,7 +114,7 @@ public class MainBibliotheque {
 
 
 
-        var empruntDocument = new EmpruntDocuments(1,
+        /*var empruntDocument = new EmpruntDocuments(1,
                 new SimpleDateFormat("dd/MM/yyyy").parse("15/03/2018"),
                 new SimpleDateFormat("dd/MM/yyyy").parse("04/01/2022"),
                 2,
@@ -113,6 +123,6 @@ public class MainBibliotheque {
         ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments();
         serviceEmpruntDocuments.enregistrer(empruntDocument);
         var empruntDocument2 = serviceEmpruntDocuments.getEmpruntDocument(1L);
-        System.out.println(empruntDocument2);
+        System.out.println(empruntDocument2);*/
     }
 }

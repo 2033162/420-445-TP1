@@ -2,9 +2,9 @@ package ca.cal.bibliotheque.model;
 
 public class Employe {
     private final long id;
-    private final String nom;
-    private final String prenom;
-    private final Fonction fonction;
+    private String nom;
+    private String prenom;
+    private Fonction fonction;
 
     public Employe(long id, String nom, String prenom, Fonction fonction) {
         this.id = id;
@@ -27,6 +27,18 @@ public class Employe {
 
     public Fonction getFonction() {
         return fonction;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setFonction(Fonction fonction) {
+        this.fonction = fonction;
     }
 
     @Override

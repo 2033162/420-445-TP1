@@ -5,14 +5,14 @@ import java.util.Date;
 
 public class Clients {
     private final long id;
-    private final String nom;
-    private final String prenom;
-    private final String rue;
-    private final String ville;
-    private final String codePostal;
-    private final String numeroTelephone;
-    private final Date dateInscription;
-    private final int nbrEmpruntEnCour;
+    private String nom;
+    private String prenom;
+    private String rue;
+    private String ville;
+    private String codePostal;
+    private String numeroTelephone;
+    private Date dateInscription;
+    private int nbrEmpruntEnCour;
 
     public Clients(long id, String nom, String prenom, String rue, String ville, String codePostal, String numeroTelephone, Date dateInscription, int nbrEmpruntEnCour) {
         this.id = id;
@@ -64,6 +64,38 @@ public class Clients {
 
     public int getNbrEmpruntEnCour() {
         return nbrEmpruntEnCour;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setRue(String rue) {
+        this.rue = rue;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public void setCodePostal(String codePostal) {
+        this.codePostal = codePostal;
+    }
+
+    public void setNumeroTelephone(String numeroTelephone) {
+        this.numeroTelephone = numeroTelephone;
+    }
+
+    public void setDateInscription(Date dateInscription) {
+        this.dateInscription = dateInscription;
+    }
+
+    public void setNbrEmpruntEnCour(int nbrEmpruntEnCour) {
+        this.nbrEmpruntEnCour = nbrEmpruntEnCour;
     }
 
     @Override
