@@ -5,9 +5,9 @@ public class DVD extends Documents {
     private final int duree;
     private final String genreFilm;
 
-    public DVD(String titre, EtatDocument etatDocument, String auteur, String editeur, int anneePublication, long id, int duree, String genreFilm) {
-        super(id, etatDocument, Documents.C_DVD, titre, auteur, editeur, anneePublication);
-        this.id = id;
+    public DVD(Documents documents, int duree, String genreFilm) {
+        super(documents);
+        this.id = documents.getId();
         this.duree = duree;
         this.genreFilm = genreFilm;
     }
@@ -28,6 +28,7 @@ public class DVD extends Documents {
     @Override
     public String toString() {
         return "DVD{" +
+                getDocument().toStringDocument() + '\n' +
                 "duree=" + duree +
                 ", genreFilm='" + genreFilm + '\'' +
                 '}';

@@ -99,7 +99,7 @@ public class JDBCCreateDB {
                 " interprete VARCHAR(255), " +
                 " idDocument INTEGER not NULL, " +
                 " PRIMARY KEY ( id ), " +
-                " CONSTRAINT fk_CD_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS" +
+                " CONSTRAINT fk_CD_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS ON DELETE CASCADE" +
                 ")");
     }
 
@@ -124,7 +124,7 @@ public class JDBCCreateDB {
                 " genreFilm VARCHAR(255), " +
                 " idDocument INTEGER not NULL, " +
                 " PRIMARY KEY ( id ), " +
-                " CONSTRAINT fk_DVD_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS" +
+                " CONSTRAINT fk_DVD_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS ON DELETE CASCADE" +
                 ")");
     }
 
@@ -146,8 +146,8 @@ public class JDBCCreateDB {
                 " idClient INTEGER not NULL, " +
                 " idDocument INTEGER not NULL, " +
                 " PRIMARY KEY ( id ), " +
-                " CONSTRAINT fk_empruntDocument_id_client FOREIGN KEY (idClient) REFERENCES CLIENTS, " +
-                " CONSTRAINT fk_empruntDocument_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS" +
+                " CONSTRAINT fk_empruntDocument_id_client FOREIGN KEY (idClient) REFERENCES CLIENTS ON DELETE CASCADE, " +
+                " CONSTRAINT fk_empruntDocument_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS ON DELETE CASCADE" +
                 ")");
     }
 
@@ -158,7 +158,7 @@ public class JDBCCreateDB {
                 " genreLivre VARCHAR(255), " +
                 " idDocument INTEGER not NULL, " +
                 " PRIMARY KEY ( id ), " +
-                " CONSTRAINT fk_livre_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS" +
+                " CONSTRAINT fk_livre_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS ON DELETE CASCADE" +
                 ")");
     }
 
@@ -169,8 +169,8 @@ public class JDBCCreateDB {
                 " idClient INTEGER not NULL, " +
                 " idDocument INTEGER not NULL, " +
                 " PRIMARY KEY ( id ), " +
-                " CONSTRAINT fk_reservation_id_client FOREIGN KEY (idClient) REFERENCES CLIENTS, " +
-                " CONSTRAINT fk_reservation_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS" +
+                " CONSTRAINT fk_reservation_id_client FOREIGN KEY (idClient) REFERENCES CLIENTS ON DELETE CASCADE, " +
+                " CONSTRAINT fk_reservation_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS ON DELETE CASCADE" +
                 ")");
     }
 }

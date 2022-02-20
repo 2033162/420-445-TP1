@@ -23,11 +23,25 @@ public class Documents {
         this.anneePublication = anneePublication;
     }
 
+    public Documents(Documents documents) {
+        this.id = documents.getId();
+        this.genreDocument = documents.getGenreDocument();
+        this.etatDocument = documents.getEtatDocument();
+        this.titre = documents.getTitre();
+        this.auteur = documents.getAuteur();
+        this.editeur = documents.getEditeur();
+        this.anneePublication = documents.getAnneePublication();
+    }
+
+    public Documents getDocument() {
+        return this;
+    }
+
     public long getId() {
         return id;
     }
 
-    public Object getGenreDocument() {
+    public String getGenreDocument() {
         return genreDocument;
     }
 
@@ -55,8 +69,7 @@ public class Documents {
         return anneePublication;
     }
 
-    @Override
-    public String toString() {
+    public String toStringDocument() {
         return "Documents{" +
                 "genreDocument=" + genreDocument +
                 ", etatDocument='" + etatDocument + '\'' +

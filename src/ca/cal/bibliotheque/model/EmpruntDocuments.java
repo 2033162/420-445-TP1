@@ -46,4 +46,15 @@ public class EmpruntDocuments {
     }
 
     public void renouvellementEmprunt() {}
+
+    @Override
+    public String toString() {
+        return "EmpruntDocuments{" +
+                "id=" + id +
+                ", dateInitial=" + dateInitial +
+                ", dateExpire=" + dateExpire +
+                ", nbrRappel=" + nbrRappel +
+                ", client=" + client +
+                '}';
+    }
 }

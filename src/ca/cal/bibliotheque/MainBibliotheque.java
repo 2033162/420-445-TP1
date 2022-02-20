@@ -1,8 +1,11 @@
 package ca.cal.bibliotheque;
 
+import ca.cal.bibliotheque.model.CD;
 import ca.cal.bibliotheque.model.Clients;
 import ca.cal.bibliotheque.model.Documents;
 import ca.cal.bibliotheque.model.EtatDocument;
+import ca.cal.bibliotheque.persistance.DB.JDBCCreateDB;
+import ca.cal.bibliotheque.service.ServiceCD;
 import ca.cal.bibliotheque.service.ServiceClient;
 import ca.cal.bibliotheque.service.ServiceDocuments;
 
@@ -14,7 +17,7 @@ public class MainBibliotheque {
     public static void main(String[] args) throws ParseException {
         //JDBCCreateDB.createDatabase();
 
-        var client = new Clients(2,
+        var client = new Clients(1,
                 "John",
                 "Smith",
                 "daragon",
@@ -25,21 +28,26 @@ public class MainBibliotheque {
                 0);
         ServiceClient serviceClient = new ServiceClient();
         serviceClient.enregistrer(client);
-        var client2 = serviceClient.getClient(2L);
+        var client2 = serviceClient.getClient(1L);
         System.out.println(client2);
 
 
 
         var document = new Documents(1,
                 EtatDocument.DISPONIBLE,
-                Documents.C_LIVRE,
+                Documents.C_CD,
                 "harry potter",
                 "JK. Rolling",
                 "maison edition",
-                1900);
-        ServiceDocuments serviceDocuments = new ServiceDocuments();
-        serviceDocuments.enregistrer(document);
-        var document2 = serviceDocuments.getDocument(1L);
-        System.out.println(document2);
+                2000);
+
+        var cd = new CD(document,
+                "classique",
+                "JK. Rolling",
+                "maison edition");
+        ServiceCD serviceCD = new ServiceCD();
+        serviceCD.enregistrer(cd);
+        var cd2 = serviceCD.getCD(1L);
+        System.out.println(cd2);
     }
 }

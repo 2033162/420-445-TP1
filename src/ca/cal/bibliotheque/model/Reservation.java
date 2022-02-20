@@ -29,5 +29,12 @@ public class Reservation {
 
     public void annulerReservation() {}
 
-
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", dateReservation=" + dateReservation +
+                ", client=" + client +
+                '}';
+    }
 }
