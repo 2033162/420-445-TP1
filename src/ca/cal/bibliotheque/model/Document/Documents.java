@@ -1,14 +1,18 @@
 package ca.cal.bibliotheque.model.Document;
 
 public class Documents {
-    private final Object genreDocument;//livre, CD, DVD
+    public static final String C_LIVRE = "livre";
+    public static final String C_CD = "CD";
+    public static final String C_DVD = "DVD";
+
+    private final String genreDocument;//livre, CD, DVD
     private final String etatDocument;//disponible, emprunte
     private final String titre;
     private final String auteur;
     private final String editeur;
     private final int anneePublication;
 
-    public Documents(Object genreDocument, String etatDocument, String titre, String auteur, String editeur, int anneePublication) {
+    public Documents(String genreDocument, String etatDocument, String titre, String auteur, String editeur, int anneePublication) {
         this.genreDocument = genreDocument;
         this.etatDocument = etatDocument;
         this.titre = titre;

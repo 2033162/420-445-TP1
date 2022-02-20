@@ -1,10 +1,11 @@
 package ca.cal.bibliotheque.model.Document;
 
-public class DVD {
+public class DVD extends Documents {
     private final int duree;
     private final String genreFilm;
 
-    public DVD(int duree, String genreFilm) {
+    public DVD(String etatDocument, String titre, String auteur, String editeur, int anneePublication, int duree, String genreFilm) {
+        super(Documents.C_DVD, etatDocument, titre, auteur, editeur, anneePublication);
         this.duree = duree;
         this.genreFilm = genreFilm;
     }
