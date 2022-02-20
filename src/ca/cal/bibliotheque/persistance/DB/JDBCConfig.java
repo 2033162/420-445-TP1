@@ -1,4 +1,4 @@
-package ca.cal.bibliotheque.persistance;
+package ca.cal.bibliotheque.persistance.DB;
 
 public class JDBCConfig {
     private static String JDBC_DRIVER = "org.h2.Driver";

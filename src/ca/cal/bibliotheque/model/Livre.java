@@ -5,8 +5,8 @@ public class Livre extends Documents {
     private final int nbrPages;
     private final String genreLivre;//roman, manuel scolaire, étude, magazine
 
-    public Livre(String titre, String auteur, String editeur, int anneePublication, long id, int nbrPages, String genreLivre) {
-        super(id, Documents.C_LIVRE, titre, auteur, editeur, anneePublication);
+    public Livre(String titre, EtatDocument etatDocument, String auteur, String editeur, int anneePublication, long id, int nbrPages, String genreLivre) {
+        super(id, etatDocument, Documents.C_LIVRE, titre, auteur, editeur, anneePublication);
         this.id = id;
         this.nbrPages = nbrPages;
         this.genreLivre = genreLivre;

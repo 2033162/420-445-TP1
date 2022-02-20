@@ -5,8 +5,8 @@ public class DVD extends Documents {
     private final int duree;
     private final String genreFilm;
 
-    public DVD(String titre, String auteur, String editeur, int anneePublication, long id, int duree, String genreFilm) {
-        super(id, Documents.C_DVD, titre, auteur, editeur, anneePublication);
+    public DVD(String titre, EtatDocument etatDocument, String auteur, String editeur, int anneePublication, long id, int duree, String genreFilm) {
+        super(id, etatDocument, Documents.C_DVD, titre, auteur, editeur, anneePublication);
         this.id = id;
         this.duree = duree;
         this.genreFilm = genreFilm;

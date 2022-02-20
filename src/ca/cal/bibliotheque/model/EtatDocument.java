@@ -1,8 +1,33 @@
 package ca.cal.bibliotheque.model;
 
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.stream.Stream;
+
 public enum EtatDocument {
-    DISPONIBLE,
-    RESERVE,
-    EMPRUNTE,
-    ENDOMMAGE
+    DISPONIBLE("DISPONIBLE"),
+    RESERVE("RESERVE"),
+    EMPRUNTE("EMPRUNTE"),
+    ENDOMMAGE("ENDOMAGE");
+
+    private String nomEtatDocument;
+    private EtatDocument(String nomEtatDocument) {
+        this.nomEtatDocument = nomEtatDocument;
+    }
+
+    @Override
+    public String toString(){
+        return nomEtatDocument;
+    }
+
+    public static EtatDocument get(String nomEtatDocument) {
+        Stream<EtatDocument> values = Arrays.stream(EtatDocument.values());
+        values = values.filter(fieldTag -> fieldTag.nomEtatDocument.equalsIgnoreCase(nomEtatDocument));
+        if (values == null) {
+            return null;
+        } else {
+            return values.findFirst().get();
+        }
+    }
 }
+

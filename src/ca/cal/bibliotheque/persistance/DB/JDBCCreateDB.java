@@ -1,4 +1,4 @@
-package ca.cal.bibliotheque.persistance;
+package ca.cal.bibliotheque.persistance.DB;
 
 import org.h2.jdbc.JdbcSQLSyntaxErrorException;
 

@@ -6,8 +6,8 @@ public class CD extends Documents {
     private final String compositeur;
     private final String interprete;
 
-    public CD(String titre, String auteur, String editeur, int anneePublication, long id, String genreMusique, String compositeur, String interprete) {
-        super(id, Documents.C_CD, titre, auteur, editeur, anneePublication);
+    public CD(String titre, EtatDocument etatDocument, String auteur, String editeur, int anneePublication, long id, String genreMusique, String compositeur, String interprete) {
+        super(id, etatDocument, Documents.C_CD, titre, auteur, editeur, anneePublication);
         this.id = id;
         this.genreMusique = genreMusique;
         this.compositeur = compositeur;

@@ -1,4 +1,4 @@
 package ca.cal.bibliotheque.persistance;
 
-public interface JDBCBClient {
+public class JDBCDVDH2 {
 }

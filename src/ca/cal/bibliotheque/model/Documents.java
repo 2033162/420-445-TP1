@@ -13,10 +13,10 @@ public class Documents {
     private final String editeur;
     private final int anneePublication;
 
-    public Documents(long id, String genreDocument, String titre, String auteur, String editeur, int anneePublication) {
+    public Documents(long id, EtatDocument etatDocument, String genreDocument, String titre, String auteur, String editeur, int anneePublication) {
         this.id = id;
         this.genreDocument = genreDocument;
-        this.etatDocument = EtatDocument.DISPONIBLE;
+        this.etatDocument = etatDocument;
         this.titre = titre;
         this.auteur = auteur;
         this.editeur = editeur;
