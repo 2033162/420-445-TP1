@@ -1,7 +1,7 @@
 package ca.cal.bibliotheque.service;
 
 import ca.cal.bibliotheque.model.Livre;
-import ca.cal.bibliotheque.persistance.JDBCLivreH2;
+import ca.cal.bibliotheque.persistance.CRUD.JDBCLivreH2;
 
 public class ServiceLivre {
     public void enregistrer(Livre livre) {

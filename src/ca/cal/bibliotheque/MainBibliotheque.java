@@ -65,7 +65,7 @@ public class MainBibliotheque {
 
 
 
-        var document3 = new Documents(3,
+        /*var document3 = new Documents(3,
                 EtatDocument.EMPRUNTE,
                 Documents.C_LIVRE,
                 "avengers",
@@ -79,6 +79,17 @@ public class MainBibliotheque {
         ServiceLivre serviceLivre = new ServiceLivre();
         serviceLivre.enregistrer(livre);
         var livre2 = serviceLivre.getLivre(3L);
-        System.out.println(livre2);
+        System.out.println(livre2);*/
+
+
+
+        var employe = new Employe(1,
+                "bernadette",
+                "carmier",
+                Fonction.GESTIONNAIRE);
+        ServiceEmploye serviceEmploye = new ServiceEmploye();
+        serviceEmploye.enregistrer(employe);
+        var employe2 = serviceEmploye.getEmploye(1L);
+        System.out.println(employe2);
     }
 }

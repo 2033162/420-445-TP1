@@ -1,4 +1,4 @@
-package ca.cal.bibliotheque.persistance;
+package ca.cal.bibliotheque.persistance.CRUD;
 
 import ca.cal.bibliotheque.model.DVD;
 
