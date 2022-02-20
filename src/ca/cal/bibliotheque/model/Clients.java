@@ -1,4 +1,6 @@
-package ca.cal.bibliotheque.model.Document;
+package ca.cal.bibliotheque.model;
+
+import java.util.Date;
 
 public class Clients {
     private final String nom;
@@ -7,10 +9,10 @@ public class Clients {
     private final String ville;
     private final String codePostal;
     private final String numeroTelephone;
-    private final String dateInscription;
+    private final Date dateInscription;
     private final int nbrEmpruntEnCour;
 
-    public Clients(String nom, String prenom, String rue, String ville, String codePostal, String numeroTelephone, String dateInscription, int nbrEmpruntEnCour) {
+    public Clients(String nom, String prenom, String rue, String ville, String codePostal, String numeroTelephone, Date dateInscription, int nbrEmpruntEnCour) {
         this.nom = nom;
         this.prenom = prenom;
         this.rue = rue;
@@ -45,7 +47,7 @@ public class Clients {
         return numeroTelephone;
     }
 
-    public String getDateInscription() {
+    public Date getDateInscription() {
         return dateInscription;
     }
 

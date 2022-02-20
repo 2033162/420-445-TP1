@@ -1,4 +1,4 @@
-package ca.cal.bibliotheque.model.Document;
+package ca.cal.bibliotheque.model;
 
 public enum EtatDocument {
     DISPONIBLE,

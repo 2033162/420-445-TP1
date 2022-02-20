@@ -1,4 +1,4 @@
-package ca.cal.bibliotheque.model.Document;
+package ca.cal.bibliotheque.model;
 
 public class Documents {
     public static final String C_LIVRE = "livre";

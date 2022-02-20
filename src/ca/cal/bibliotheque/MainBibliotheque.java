@@ -1,6 +1,6 @@
 package ca.cal.bibliotheque;
 
-import ca.cal.bibliotheque.model.Document.Passenger;
+import ca.cal.bibliotheque.model.Passenger;
 import ca.cal.bibliotheque.service.ServiceBibliotheque;
 
 public class MainBibliotheque {

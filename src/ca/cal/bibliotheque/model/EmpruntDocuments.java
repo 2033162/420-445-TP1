@@ -1,21 +1,23 @@
-package ca.cal.bibliotheque.model.Document;
+package ca.cal.bibliotheque.model;
+
+import java.util.Date;
 
 public class EmpruntDocuments {
-    private final String dateInitial;
-    private final String dateExpire;
+    private final Date dateInitial;
+    private final Date dateExpire;
     private final int nbrRappel;
 
-    public EmpruntDocuments(String dateInitial, String dateExpire, int nbrRappel) {
+    public EmpruntDocuments(Date dateInitial, Date dateExpire, int nbrRappel) {
         this.dateInitial = dateInitial;
         this.dateExpire = dateExpire;
         this.nbrRappel = nbrRappel;
     }
 
-    public String getDateInitial() {
+    public Date getDateInitial() {
         return dateInitial;
     }
 
-    public String getDateExpire() {
+    public Date getDateExpire() {
         return dateExpire;
     }
 

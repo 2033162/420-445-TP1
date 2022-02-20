@@ -1,4 +1,4 @@
-package ca.cal.bibliotheque.model.Document;
+package ca.cal.bibliotheque.model;
 
 public class Livre extends Documents {
     private final int nbrPages;

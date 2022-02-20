@@ -1,4 +1,4 @@
-package ca.cal.bibliotheque.model.Document;
+package ca.cal.bibliotheque.model;
 
 public class CD extends Documents {
     private final String genreMusique;

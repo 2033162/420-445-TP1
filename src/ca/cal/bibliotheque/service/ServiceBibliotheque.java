@@ -1,6 +1,6 @@
 package ca.cal.bibliotheque.service;
 
-import ca.cal.bibliotheque.model.Document.Passenger;
+import ca.cal.bibliotheque.model.Passenger;
 import ca.cal.bibliotheque.persistance.JDBCBibliothequeH2;
 
 public class ServiceBibliotheque {
