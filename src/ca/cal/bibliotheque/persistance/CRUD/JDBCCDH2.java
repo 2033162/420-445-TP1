@@ -42,4 +42,13 @@ public class JDBCCDH2 implements JDBCCD {
             return null;
         }
     }
+
+    public void modification(CD cd) {
+        new JDBCDocumentsH2().modification(cd.getDocument());
+        JDBCBibliotheque.modification("UPDATE CD SET " +
+                "genreMusique='" + cd.getGenreMusique() +
+                "', compositeur='" + cd.getCompositeur() +
+                "', interprete='" + cd.getInterprete() + "'" +
+                " WHERE id=" + cd.getId() + ";");
+    }
 }

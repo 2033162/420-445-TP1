@@ -8,6 +8,10 @@ public class ServiceDVD {
         new JDBCDVDH2().enregistrer(dvd);
     }
 
+    public void modification(DVD dvd) {
+        new JDBCDVDH2().modification(dvd);
+    }
+
     public DVD getDVD(long dvdId) {
         return new JDBCDVDH2().getDVD(dvdId);
     }

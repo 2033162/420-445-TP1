@@ -8,6 +8,10 @@ public class ServiceCD {
         new JDBCCDH2().enregistrer(cd);
     }
 
+    public void modification(CD cd) {
+        new JDBCCDH2().modification(cd);
+    }
+
     public CD getCD(long cdId) {
         return new JDBCCDH2().getCD(cdId);
     }

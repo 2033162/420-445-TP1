@@ -40,4 +40,12 @@ public class JDBCDVDH2 implements JDBCDVD {
             return null;
         }
     }
+
+    public void modification(DVD dvd) {
+        new JDBCDocumentsH2().modification(dvd.getDocument());
+        JDBCBibliotheque.modification("UPDATE DVD SET " +
+                "duree='" + dvd.getDuree() +
+                "', genreFilm='" + dvd.getGenreFilm() + "'" +
+                " WHERE id=" + dvd.getId() + ";");
+    }
 }

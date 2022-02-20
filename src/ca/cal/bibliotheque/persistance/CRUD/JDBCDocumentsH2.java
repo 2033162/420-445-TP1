@@ -45,4 +45,15 @@ public class JDBCDocumentsH2 implements JDBCDocuments {
             return null;
         }
     }
+
+    public void modification(Documents documents) {
+        JDBCBibliotheque.modification("UPDATE DOCUMENTS SET " +
+                "etatDocument='" + documents.getEtatDocument() +
+                "', genreDocument='" + documents.getGenreDocument() +
+                "', titre='" + documents.getTitre() +
+                "', auteur='" + documents.getAuteur() +
+                "', editeur='" + documents.getEditeur() +
+                "', anneePublication='" + documents.getAnneePublication() + "'" +
+                " WHERE id=" + documents.getId() + ";");
+    }
 }

@@ -2,8 +2,8 @@ package ca.cal.bibliotheque.model;
 
 public class DVD extends Documents {
     private final long id;
-    private final int duree;
-    private final String genreFilm;
+    private int duree;
+    private String genreFilm;
 
     public DVD(Documents documents, int duree, String genreFilm) {
         super(documents);
@@ -23,6 +23,14 @@ public class DVD extends Documents {
 
     public String getGenreFilm() {
         return genreFilm;
+    }
+
+    public void setDuree(int duree) {
+        this.duree = duree;
+    }
+
+    public void setGenreFilm(String genreFilm) {
+        this.genreFilm = genreFilm;
     }
 
     @Override

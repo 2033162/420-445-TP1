@@ -8,6 +8,10 @@ public class ServiceLivre {
         new JDBCLivreH2().enregistrer(livre);
     }
 
+    public void modification(Livre livre) {
+        new JDBCLivreH2().modification(livre);
+    }
+
     public Livre getLivre(long livreId) {
         return new JDBCLivreH2().getLivre(livreId);
     }

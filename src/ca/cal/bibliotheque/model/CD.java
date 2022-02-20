@@ -2,9 +2,9 @@ package ca.cal.bibliotheque.model;
 
 public class CD extends Documents {
     private final long id;
-    private final String genreMusique;
-    private final String compositeur;
-    private final String interprete;
+    private String genreMusique;
+    private String compositeur;
+    private String interprete;
 
     public CD(Documents documents, String genreMusique, String compositeur, String interprete) {
         super(documents);
@@ -28,6 +28,18 @@ public class CD extends Documents {
 
     public String getInterprete() {
         return interprete;
+    }
+
+    public void setGenreMusique(String genreMusique) {
+        this.genreMusique = genreMusique;
+    }
+
+    public void setCompositeur(String compositeur) {
+        this.compositeur = compositeur;
+    }
+
+    public void setInterprete(String interprete) {
+        this.interprete = interprete;
     }
 
     @Override

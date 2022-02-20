@@ -32,7 +32,7 @@ public class MainBibliotheque {
 
 
 
-        /*var document = new Documents(1,
+        /*var document = new Documents(31,
                 EtatDocument.DISPONIBLE,
                 Documents.C_CD,
                 "harry potter",
@@ -46,12 +46,17 @@ public class MainBibliotheque {
                 "maison edition");
         ServiceCD serviceCD = new ServiceCD();
         serviceCD.enregistrer(cd);
-        var cd2 = serviceCD.getCD(1L);
-        System.out.println(cd2);*/
+        var cd2 = serviceCD.getCD(31L);
+        System.out.println(cd2);
+
+        cd.setInterprete("JK. Rolling");
+        serviceCD.modification(cd);
+        var cd3 = serviceCD.getCD(31L);
+        System.out.println(cd3);*/
 
 
 
-        /*var document2 = new Documents(2,
+        /*var document2 = new Documents(20,
                 EtatDocument.ENDOMMAGE,
                 Documents.C_DVD,
                 "bobby bob",
@@ -64,12 +69,17 @@ public class MainBibliotheque {
                 "drame");
         ServiceDVD serviceDVD = new ServiceDVD();
         serviceDVD.enregistrer(dvd);
-        var dvd2 = serviceDVD.getDVD(2L);
-        System.out.println(dvd2);*/
+        var dvd2 = serviceDVD.getDVD(20L);
+        System.out.println(dvd2);
+
+        dvd.setGenreFilm("Horreur");
+        serviceDVD.modification(dvd);
+        var dvd3 = serviceDVD.getDVD(20L);
+        System.out.println(dvd3);*/
 
 
 
-        /*var document3 = new Documents(6,
+        var document3 = new Documents(50,
                 EtatDocument.EMPRUNTE,
                 Documents.C_LIVRE,
                 "avengers",
@@ -82,8 +92,13 @@ public class MainBibliotheque {
                 "Roman");
         ServiceLivre serviceLivre = new ServiceLivre();
         serviceLivre.enregistrer(livre);
-        var livre2 = serviceLivre.getLivre(6L);
-        System.out.println(livre2);*/
+        var livre2 = serviceLivre.getLivre(50L);
+        System.out.println(livre2);
+
+        livre.setAnneePublication(2002);
+        serviceLivre.modification(livre);
+        var livre3 = serviceLivre.getLivre(50L);
+        System.out.println(livre3);
 
 
 

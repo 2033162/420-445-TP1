@@ -8,10 +8,10 @@ public class Documents {
 
     private final String genreDocument;//livre, CD, DVD
     private EtatDocument etatDocument;//disponible, emprunte
-    private final String titre;
-    private final String auteur;
-    private final String editeur;
-    private final int anneePublication;
+    private String titre;
+    private String auteur;
+    private String editeur;
+    private int anneePublication;
 
     public Documents(long id, EtatDocument etatDocument, String genreDocument, String titre, String auteur, String editeur, int anneePublication) {
         this.id = id;
@@ -67,6 +67,22 @@ public class Documents {
 
     public int getAnneePublication() {
         return anneePublication;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public void setAuteur(String auteur) {
+        this.auteur = auteur;
+    }
+
+    public void setEditeur(String editeur) {
+        this.editeur = editeur;
+    }
+
+    public void setAnneePublication(int anneePublication) {
+        this.anneePublication = anneePublication;
     }
 
     public String toStringDocument() {

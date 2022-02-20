@@ -40,4 +40,12 @@ public class JDBCLivreH2 implements JDBCLivre {
             return null;
         }
     }
+
+    public void modification(Livre livre) {
+        new JDBCDocumentsH2().modification(livre.getDocument());
+        JDBCBibliotheque.modification("UPDATE LIVRE SET " +
+                "nbrPages='" + livre.getNbrPages() +
+                "', genreLivre='" + livre.getGenreLivre() + "'" +
+                " WHERE id=" + livre.getId() + ";");
+    }
 }
