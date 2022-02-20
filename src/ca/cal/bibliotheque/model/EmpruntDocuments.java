@@ -1,5 +1,6 @@
 package ca.cal.bibliotheque.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class EmpruntDocuments {
@@ -8,13 +9,15 @@ public class EmpruntDocuments {
     private final Date dateExpire;
     private final int nbrRappel;
     private final Clients client;
+    private final Documents documents;
 
-    public EmpruntDocuments(long id, Date dateInitial, Date dateExpire, int nbrRappel, Clients client) {
+    public EmpruntDocuments(long id, Date dateInitial, Date dateExpire, int nbrRappel, Clients client, Documents documents) {
         this.id = id;
         this.dateInitial = dateInitial;
         this.dateExpire = dateExpire;
         this.nbrRappel = nbrRappel;
         this.client = client;
+        this.documents = documents;
     }
 
     public long getId() {
@@ -25,6 +28,10 @@ public class EmpruntDocuments {
         return client;
     }
 
+    public Documents getDocument() {
+        return documents;
+    }
+
     public Date getDateInitial() {
         return dateInitial;
     }
@@ -33,19 +40,17 @@ public class EmpruntDocuments {
         return dateExpire;
     }
 
+    public String getDateInitialChaine() {
+        return new SimpleDateFormat("yyyy-MM-dd").format(dateInitial);
+    }
+
+    public String getDateExpireChaine() {
+        return new SimpleDateFormat("yyyy-MM-dd").format(dateExpire);
+    }
+
     public int getNbrRappel() {
         return nbrRappel;
     }
-
-    public Documents retournerDocument() {
-        return null;
-    }
-
-    public boolean verifierDateRetour() {
-        return false;
-    }
-
-    public void renouvellementEmprunt() {}
 
     @Override
     public String toString() {

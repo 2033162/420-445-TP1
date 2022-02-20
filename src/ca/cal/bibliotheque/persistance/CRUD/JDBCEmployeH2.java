@@ -2,8 +2,6 @@ package ca.cal.bibliotheque.persistance.CRUD;
 
 import ca.cal.bibliotheque.model.Employe;
 import ca.cal.bibliotheque.model.Fonction;
-import ca.cal.bibliotheque.persistance.CRUD.JDBCBibliotheque;
-import ca.cal.bibliotheque.persistance.CRUD.JDBCEmploye;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
 import ca.cal.bibliotheque.persistance.DB.JDBCException;
 

@@ -1,16 +1,19 @@
 package ca.cal.bibliotheque.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Reservation {
     private final long id;
     private final Date dateReservation;
     private final Clients client;
+    private final Documents document;
 
-    public Reservation(long id, Date dateReservation, Clients client) {
+    public Reservation(long id, Date dateReservation, Clients client, Documents document) {
         this.id = id;
         this.dateReservation = dateReservation;
         this.client = client;
+        this.document = document;
     }
 
     public long getId() {
@@ -21,13 +24,17 @@ public class Reservation {
         return client;
     }
 
+    public Documents getDocument() {
+        return document;
+    }
+
     public Date getDateReservation() {
         return dateReservation;
     }
 
-    public void faireReservation() {}
-
-    public void annulerReservation() {}
+    public String getDateReservationChaine() {
+        return new SimpleDateFormat("yyyy-MM-dd").format(dateReservation);
+    }
 
     @Override
     public String toString() {

@@ -1,7 +1,6 @@
 package ca.cal.bibliotheque;
 
 import ca.cal.bibliotheque.model.*;
-import ca.cal.bibliotheque.persistance.DB.JDBCCreateDB;
 import ca.cal.bibliotheque.service.*;
 
 import java.text.ParseException;
@@ -12,7 +11,7 @@ public class MainBibliotheque {
     public static void main(String[] args) throws ParseException {
         //JDBCCreateDB.createDatabase();
 
-        /*var client = new Clients(1,
+        var client = new Clients(4,
                 "John",
                 "Smith",
                 "daragon",
@@ -23,8 +22,8 @@ public class MainBibliotheque {
                 0);
         ServiceClient serviceClient = new ServiceClient();
         serviceClient.enregistrer(client);
-        var client2 = serviceClient.getClient(1L);
-        System.out.println(client2);*/
+        var client2 = serviceClient.getClient(4L);
+        System.out.println(client2);
 
 
 
@@ -65,7 +64,7 @@ public class MainBibliotheque {
 
 
 
-        /*var document3 = new Documents(3,
+        var document3 = new Documents(6,
                 EtatDocument.EMPRUNTE,
                 Documents.C_LIVRE,
                 "avengers",
@@ -78,18 +77,42 @@ public class MainBibliotheque {
                 "Roman");
         ServiceLivre serviceLivre = new ServiceLivre();
         serviceLivre.enregistrer(livre);
-        var livre2 = serviceLivre.getLivre(3L);
-        System.out.println(livre2);*/
+        var livre2 = serviceLivre.getLivre(6L);
+        System.out.println(livre2);
 
 
 
-        var employe = new Employe(1,
+        /*var employe = new Employe(1,
                 "bernadette",
                 "carmier",
                 Fonction.GESTIONNAIRE);
         ServiceEmploye serviceEmploye = new ServiceEmploye();
         serviceEmploye.enregistrer(employe);
         var employe2 = serviceEmploye.getEmploye(1L);
-        System.out.println(employe2);
+        System.out.println(employe2);*/
+
+
+
+        /*var reservation = new Reservation(1,
+                new SimpleDateFormat("dd/MM/yyyy").parse("05/10/2000"),
+                client,
+                document3);
+        ServiceReservation serviceReservation = new ServiceReservation();
+        serviceReservation.faireReservation(reservation);
+        var reservation2 = serviceReservation.getReservation(1L);
+        System.out.println(reservation2);*/
+
+
+
+        var empruntDocument = new EmpruntDocuments(1,
+                new SimpleDateFormat("dd/MM/yyyy").parse("15/03/2018"),
+                new SimpleDateFormat("dd/MM/yyyy").parse("04/01/2022"),
+                2,
+                client,
+                document3);
+        ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments();
+        serviceEmpruntDocuments.enregistrer(empruntDocument);
+        var empruntDocument2 = serviceEmpruntDocuments.getEmpruntDocument(1L);
+        System.out.println(empruntDocument2);
     }
 }
