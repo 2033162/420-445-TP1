@@ -21,8 +21,46 @@ public class JDBCCreateDB {
             createTables();
 
             // STEP 4: Clean-up environment
-            stmt.close();
             conn.close();
+        } catch(JdbcSQLSyntaxErrorException e) {
+            // Database already exists
+            JDBCException.handleException(e);
+        } catch(SQLException se) {
+            //Handle errors for JDBC
+            JDBCException.handleException(se);
+        } catch(Exception e) {
+            //Handle errors for Class.forName
+            JDBCException.handleException(e);
+        } finally {
+            //finally, block used to close resources
+            try {
+                if(conn!=null) conn.close();
+            } catch(SQLException se){
+                JDBCException.handleException(se);
+            } //end finally try
+        } //end try
+        System.out.println("Goodbye!");
+    }
+
+    private static void createTables() {
+        System.out.println("Creating tables in given database...");
+        createDocuments();
+        createCD();
+        createClients();
+        createDVD();
+        createEmploye();
+        createEmpruntDocument();
+        createLivre();
+        createReservation();
+        System.out.println("Created tables in given database...");
+    }
+
+    private static void createTable(String sql) {
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+            // STEP 4: Clean-up environment
+            stmt.close();
         } catch(JdbcSQLSyntaxErrorException e) {
             // Database already exists
             JDBCException.handleException(e);
@@ -38,53 +76,31 @@ public class JDBCCreateDB {
                 if(stmt!=null) stmt.close();
             } catch(SQLException se2) {
             } // nothing we can do
-            try {
-                if(conn!=null) conn.close();
-            } catch(SQLException se){
-                JDBCException.handleException(se);
-            } //end finally try
         } //end try
-        System.out.println("Goodbye!");
     }
 
-    private static void createTables() {
-        System.out.println("Creating tables in given database...");
-        createCD();
-        createClients();
-        createDVD();
-        createEmploye();
-        createEmpruntDocument();
-        createLivre();
-        createReservation();
-        System.out.println("Created tables in given database...");
-    }
-
-    private static void createTable(String sql) {
-        try {
-            stmt = conn.createStatement();
-            stmt.executeUpdate(sql);
-        } catch (Exception e) {
-//a poursuivre...
-        }
-    }
-
-    private static String createDocuments() {
-        return " genreDocument VARCHAR(255), " +
+    private static void createDocuments() {
+        createTable("CREATE TABLE DOCUMENTS " +
+                "(id INTEGER not NULL, " +
+                " genreDocument VARCHAR(255), " +
                 " etatDocument VARCHAR(255), " +
                 " titre VARCHAR(255), " +
                 " auteur VARCHAR(255), " +
                 " editeur VARCHAR(255), " +
-                " anneePublication INTEGER";
+                " anneePublication INTEGER, " +
+                " PRIMARY KEY ( id ))");
     }
 
     private static void createCD() {
         createTable("CREATE TABLE CD " +
                 "(id INTEGER not NULL, " +
-                createDocuments() + ", " +
                 " genreMusique VARCHAR(255), " +
                 " compositeur VARCHAR(255), " +
                 " interprete VARCHAR(255), " +
-                " PRIMARY KEY ( id ))");
+                " idDocument INTEGER not NULL, " +
+                " PRIMARY KEY ( id ), " +
+                " CONSTRAINT fk_CD_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS" +
+                ")");
     }
 
     private static void createClients() {
@@ -104,10 +120,12 @@ public class JDBCCreateDB {
     private static void createDVD() {
         createTable("CREATE TABLE DVD " +
                 "(id INTEGER not NULL, " +
-                createDocuments() + ", " +
                 " duree INTEGER, " +
                 " genreFilm VARCHAR(255), " +
-                " PRIMARY KEY ( id ))");
+                " idDocument INTEGER not NULL, " +
+                " PRIMARY KEY ( id ), " +
+                " CONSTRAINT fk_DVD_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS" +
+                ")");
     }
 
     private static void createEmploye() {
@@ -125,18 +143,23 @@ public class JDBCCreateDB {
                 " dateInitial DATE, " +
                 " dateExpire DATE, " +
                 " nbrRappel INTEGER, " +
+                " idClient INTEGER not NULL, " +
+                " idDocument INTEGER not NULL, " +
                 " PRIMARY KEY ( id ), " +
-                " CONSTRAINT fk_empruntDocument_id_client FOREIGN KEY (idClient) REFERENCES CLIENTS" +
+                " CONSTRAINT fk_empruntDocument_id_client FOREIGN KEY (idClient) REFERENCES CLIENTS, " +
+                " CONSTRAINT fk_empruntDocument_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS" +
                 ")");
     }
 
     private static void createLivre() {
         createTable("CREATE TABLE LIVRE " +
                 "(id INTEGER not NULL, " +
-                createDocuments() + ", " +
                 " nbrPages INTEGER, " +
                 " genreLivre VARCHAR(255), " +
-                " PRIMARY KEY ( id ))");
+                " idDocument INTEGER not NULL, " +
+                " PRIMARY KEY ( id ), " +
+                " CONSTRAINT fk_livre_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS" +
+                ")");
     }
 
     private static void createReservation() {
@@ -144,8 +167,10 @@ public class JDBCCreateDB {
                 "(id INTEGER not NULL, " +
                 " dateReservation DATE, " +
                 " idClient INTEGER not NULL, " +
+                " idDocument INTEGER not NULL, " +
                 " PRIMARY KEY ( id ), " +
-                " CONSTRAINT fk_reservation_id_client FOREIGN KEY (idClient) REFERENCES CLIENTS" +
+                " CONSTRAINT fk_reservation_id_client FOREIGN KEY (idClient) REFERENCES CLIENTS, " +
+                " CONSTRAINT fk_reservation_id_document FOREIGN KEY (idDocument) REFERENCES DOCUMENTS" +
                 ")");
     }
 }

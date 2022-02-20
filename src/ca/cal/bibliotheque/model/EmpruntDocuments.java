@@ -3,14 +3,26 @@ package ca.cal.bibliotheque.model;
 import java.util.Date;
 
 public class EmpruntDocuments {
+    private final long id;
     private final Date dateInitial;
     private final Date dateExpire;
     private final int nbrRappel;
+    private final Clients client;
 
-    public EmpruntDocuments(Date dateInitial, Date dateExpire, int nbrRappel) {
+    public EmpruntDocuments(long id, Date dateInitial, Date dateExpire, int nbrRappel, Clients client) {
+        this.id = id;
         this.dateInitial = dateInitial;
         this.dateExpire = dateExpire;
         this.nbrRappel = nbrRappel;
+        this.client = client;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public Clients getClient() {
+        return client;
     }
 
     public Date getDateInitial() {

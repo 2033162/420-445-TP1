@@ -2,5 +2,7 @@ package ca.cal.bibliotheque.model;
 
 public enum EtatDocument {
     DISPONIBLE,
-    RESERVE
+    RESERVE,
+    EMPRUNTE,
+    ENDOMMAGE
 }

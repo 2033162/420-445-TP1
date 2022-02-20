@@ -1,14 +1,20 @@
 package ca.cal.bibliotheque.model;
 
 public class Employe {
+    private final long id;
     private final String nom;
     private final String prenom;
     private final Fonction fonction;
 
-    public Employe(String nom, String prenom, Fonction fonction) {
+    public Employe(long id, String nom, String prenom, Fonction fonction) {
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.fonction = fonction;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getNom() {

@@ -1,8 +1,10 @@
 package ca.cal.bibliotheque.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Clients {
+    private final long id;
     private final String nom;
     private final String prenom;
     private final String rue;
@@ -12,7 +14,8 @@ public class Clients {
     private final Date dateInscription;
     private final int nbrEmpruntEnCour;
 
-    public Clients(String nom, String prenom, String rue, String ville, String codePostal, String numeroTelephone, Date dateInscription, int nbrEmpruntEnCour) {
+    public Clients(long id, String nom, String prenom, String rue, String ville, String codePostal, String numeroTelephone, Date dateInscription, int nbrEmpruntEnCour) {
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.rue = rue;
@@ -21,6 +24,10 @@ public class Clients {
         this.numeroTelephone = numeroTelephone;
         this.dateInscription = dateInscription;
         this.nbrEmpruntEnCour = nbrEmpruntEnCour;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getNom() {
@@ -49,6 +56,10 @@ public class Clients {
 
     public Date getDateInscription() {
         return dateInscription;
+    }
+
+    public String getDateInscriptionChaine() {
+        return new SimpleDateFormat("yyyy-MM-dd").format(dateInscription);
     }
 
     public int getNbrEmpruntEnCour() {
