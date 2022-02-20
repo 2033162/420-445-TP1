@@ -1,7 +1,6 @@
 package ca.cal.bibliotheque.model;
 
 import java.util.Arrays;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 public enum EtatDocument {
@@ -11,7 +10,7 @@ public enum EtatDocument {
     ENDOMMAGE("ENDOMAGE");
 
     private String nomEtatDocument;
-    private EtatDocument(String nomEtatDocument) {
+    EtatDocument(String nomEtatDocument) {
         this.nomEtatDocument = nomEtatDocument;
     }
 

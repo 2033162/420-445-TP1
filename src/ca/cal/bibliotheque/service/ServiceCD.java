@@ -1,7 +1,7 @@
 package ca.cal.bibliotheque.service;
 
 import ca.cal.bibliotheque.model.CD;
-import ca.cal.bibliotheque.persistance.JDBCCDH2;
+import ca.cal.bibliotheque.persistance.CRUD.JDBCCDH2;
 
 public class ServiceCD {
     public void enregistrer(CD cd) {
