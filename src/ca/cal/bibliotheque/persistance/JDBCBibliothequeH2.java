@@ -2,34 +2,21 @@ package ca.cal.bibliotheque.persistance;
 
 import ca.cal.bibliotheque.model.Document.Passenger;
 import org.h2.jdbc.JdbcSQLSyntaxErrorException;
+import java.sql.Connection;
+import java.sql.Statement;
 
 import java.sql.*;
 
 public class JDBCBibliothequeH2 implements JDBCBibliotheque {
-    private static final String JDBC_DRIVER = "org.h2.Driver";
-    private static final String DB_URL = "jdbc:h2:~/voyage";
-
-    //  Database credentials
-    private static final String USER = "sa";
-    private static final String PASS = "";
 
     private static Connection conn = null;
     private static Statement stmt = null;
-
-    static {
-        // STEP 1: Register JDBC driver
-        try {
-            Class.forName(JDBC_DRIVER);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void createDatabase() {
         try {
             //STEP 2: Open a connection
             System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            conn = DriverManager.getConnection(JDBCConfig.getDbUrl(),JDBCConfig.getUSER(),JDBCConfig.getPASS());
 
             //STEP 3: Execute a query
             System.out.println("Creating table in given database...");
@@ -55,7 +42,7 @@ public class JDBCBibliothequeH2 implements JDBCBibliotheque {
             //Handle errors for Class.forName
             handleException(e);
         } finally {
-            //finally block used to close resources
+            //finally, block used to close resources
             try{
                 if(stmt!=null) stmt.close();
             } catch(SQLException se2) {
@@ -70,7 +57,7 @@ public class JDBCBibliothequeH2 implements JDBCBibliotheque {
     }
 
     public static void save(Passenger passenger) {
-        try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        try(Connection conn = DriverManager.getConnection(JDBCConfig.getDbUrl(),JDBCConfig.getUSER(),JDBCConfig.getPASS());
             Statement stmt = conn.createStatement();
         ) {
             System.out.println("Inserting records into the table...");
@@ -97,7 +84,7 @@ public class JDBCBibliothequeH2 implements JDBCBibliotheque {
 
     public static Passenger getPassenger(long passengerId) {
         // Open a connection
-        try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        try(Connection conn = DriverManager.getConnection(JDBCConfig.getDbUrl(),JDBCConfig.getUSER(),JDBCConfig.getPASS());
             PreparedStatement ps = conn.prepareStatement("SELECT id, first, last from PASSENGER WHERE id = ?");) {
 
             ps.setLong(1, 1);

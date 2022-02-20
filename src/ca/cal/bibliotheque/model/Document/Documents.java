@@ -6,15 +6,15 @@ public class Documents {
     public static final String C_DVD = "DVD";
 
     private final String genreDocument;//livre, CD, DVD
-    private final String etatDocument;//disponible, emprunte
+    private EtatDocument etatDocument;//disponible, emprunte
     private final String titre;
     private final String auteur;
     private final String editeur;
     private final int anneePublication;
 
-    public Documents(String genreDocument, String etatDocument, String titre, String auteur, String editeur, int anneePublication) {
+    public Documents(String genreDocument, String titre, String auteur, String editeur, int anneePublication) {
         this.genreDocument = genreDocument;
-        this.etatDocument = etatDocument;
+        this.etatDocument = EtatDocument.DISPONIBLE;
         this.titre = titre;
         this.auteur = auteur;
         this.editeur = editeur;
@@ -25,8 +25,12 @@ public class Documents {
         return genreDocument;
     }
 
-    public String getEtatDocument() {
+    public EtatDocument getEtatDocument() {
         return etatDocument;
+    }
+
+    public void setEtatDocument(EtatDocument etatDocument) {
+        this.etatDocument = etatDocument;
     }
 
     public String getTitre() {
