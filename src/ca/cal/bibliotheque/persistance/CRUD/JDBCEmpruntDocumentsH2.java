@@ -101,4 +101,24 @@ public class JDBCEmpruntDocumentsH2 implements JDBCEmpruntDocuments {
         }
         return listeEmpruntDoc;
     }
+
+    public int[] getNbrEmpruntParMois() {
+        int[] nbrEmpruntParMois = new int[12];
+        // Open a connection
+        try(Connection conn = DriverManager.getConnection(JDBCConfig.getDbUrl(),JDBCConfig.getUSER(),JDBCConfig.getPASS());
+            PreparedStatement ps = conn.prepareStatement("SELECT MONTH(dateInitial) AS mois, COUNT(*) AS nbr_emprunt from EMPRUNTDOCUMENT GROUP BY MONTH(dateInitial) ORDER BY MONTH(dateInitial)");) {
+
+            // NOTEZ le try à l'intérieur du try
+            try (ResultSet rs = ps.executeQuery();) {
+                do {
+                    rs.next();
+                    nbrEmpruntParMois[rs.getInt("mois") - 1] = rs.getInt("nbr_emprunt");
+                } while (!rs.last());
+            }
+        } catch (SQLException e) {
+            JDBCException.handleException(e);
+            return null;
+        }
+        return nbrEmpruntParMois;
+    }
 }

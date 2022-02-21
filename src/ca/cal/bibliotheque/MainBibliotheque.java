@@ -4,6 +4,7 @@ import ca.cal.bibliotheque.model.*;
 import ca.cal.bibliotheque.persistance.DB.JDBCCreateDB;
 import ca.cal.bibliotheque.service.*;
 
+import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -190,6 +191,15 @@ public class MainBibliotheque {
 
 
         serviceEmpruntDocuments.faireEmprunt(client1, document1);
+
+
+
+        System.out.println("\nNOMBRE D'EMPRUNT PAR MOIS :");
+        int[] nbrEmpruntParMois = serviceEmpruntDocuments.getNbrEmpruntParMois();
+        for (int i = 0; i < nbrEmpruntParMois.length; i++) {
+            System.out.println(new DateFormatSymbols().getMonths()[i] + "  " + nbrEmpruntParMois[i]);
+        }
+        System.out.println();
 
 
 

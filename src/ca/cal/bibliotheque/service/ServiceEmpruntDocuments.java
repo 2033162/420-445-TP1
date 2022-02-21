@@ -62,6 +62,10 @@ public class ServiceEmpruntDocuments {
         }
     }
 
+    public int[] getNbrEmpruntParMois() {
+        return new JDBCEmpruntDocumentsH2().getNbrEmpruntParMois();
+    }
+
     public void modification(EmpruntDocuments empruntDocument) {
         new JDBCEmpruntDocumentsH2().modification(empruntDocument);
     }

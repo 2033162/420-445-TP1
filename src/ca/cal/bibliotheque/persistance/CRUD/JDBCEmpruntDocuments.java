@@ -14,4 +14,5 @@ public interface JDBCEmpruntDocuments {
     void suppression(EmpruntDocuments empruntDocuments);
     long getMaxId();
     List<EmpruntDocuments> getClientEmpruntRetard(long clientId);
+    int[] getNbrEmpruntParMois();
 }
