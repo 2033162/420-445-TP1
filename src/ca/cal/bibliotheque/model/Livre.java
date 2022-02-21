@@ -3,9 +3,9 @@ package ca.cal.bibliotheque.model;
 public class Livre extends Documents {
     private final long id;
     private int nbrPages;
-    private String genreLivre;//roman, manuel scolaire, étude, magazine
+    private GenreLivre genreLivre;
 
-    public Livre(Documents documents, int nbrPages, String genreLivre) {
+    public Livre(Documents documents, int nbrPages, GenreLivre genreLivre) {
         super(documents);
         this.id = documents.getId();
         this.nbrPages = nbrPages;
@@ -21,7 +21,7 @@ public class Livre extends Documents {
         return nbrPages;
     }
 
-    public String getGenreLivre() {
+    public GenreLivre getGenreLivre() {
         return genreLivre;
     }
 
@@ -29,7 +29,7 @@ public class Livre extends Documents {
         this.nbrPages = nbrPages;
     }
 
-    public void setGenreLivre(String genreLivre) {
+    public void setGenreLivre(GenreLivre genreLivre) {
         this.genreLivre = genreLivre;
     }
 

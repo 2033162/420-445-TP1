@@ -2,6 +2,7 @@ package ca.cal.bibliotheque.persistance.CRUD;
 
 import ca.cal.bibliotheque.model.CD;
 import ca.cal.bibliotheque.model.Documents;
+import ca.cal.bibliotheque.model.GenreLivre;
 import ca.cal.bibliotheque.model.Livre;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
 import ca.cal.bibliotheque.persistance.DB.JDBCException;
@@ -33,7 +34,7 @@ public class JDBCLivreH2 implements JDBCLivre {
                 return new Livre(
                         documents,
                         rs.getInt("nbrPages"),
-                        rs.getString("genreLivre")
+                        GenreLivre.get(rs.getString("genreLivre"))
                 );
             }
         } catch (SQLException e) {
