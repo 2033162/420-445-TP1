@@ -1,5 +1,6 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
+import ca.cal.bibliotheque.model.CD;
 import ca.cal.bibliotheque.model.Documents;
 import ca.cal.bibliotheque.model.Livre;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
@@ -47,5 +48,10 @@ public class JDBCLivreH2 implements JDBCLivre {
                 "nbrPages='" + livre.getNbrPages() +
                 "', genreLivre='" + livre.getGenreLivre() + "'" +
                 " WHERE id=" + livre.getId() + ";");
+    }
+
+    public void suppression(Livre livre) {
+        JDBCBibliotheque.suppression("LIVRE", livre.getId());
+        new JDBCDocumentsH2().suppression(livre.getDocument());
     }
 }

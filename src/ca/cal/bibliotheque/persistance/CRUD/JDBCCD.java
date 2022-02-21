@@ -6,4 +6,5 @@ public interface JDBCCD {
     void enregistrer(CD cd);
     CD getCD(long cdId);
     void modification(CD cd);
+    void suppression(CD cd);
 }

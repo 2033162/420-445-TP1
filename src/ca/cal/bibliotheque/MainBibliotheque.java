@@ -139,7 +139,7 @@ public class MainBibliotheque {
 
 
 
-        var empruntDocument = new EmpruntDocuments(1,
+        /*var empruntDocument = new EmpruntDocuments(1,
                 new SimpleDateFormat("dd/MM/yyyy").parse("15/03/2018"),
                 new SimpleDateFormat("dd/MM/yyyy").parse("04/01/2022"),
                 2,
@@ -148,11 +148,11 @@ public class MainBibliotheque {
         ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments();
         serviceEmpruntDocuments.enregistrer(empruntDocument);
         var empruntDocument2 = serviceEmpruntDocuments.getEmpruntDocument(1L);
-        System.out.println(empruntDocument2);
+        System.out.println(empruntDocument2);*/
 
-        empruntDocument.setNbrRappel(4);
+        /*empruntDocument.setNbrRappel(4);
         serviceEmpruntDocuments.modification(empruntDocument);
         var empruntDocument3 = serviceEmpruntDocuments.getEmpruntDocument(1L);
-        System.out.println(empruntDocument3);
+        System.out.println(empruntDocument3);*/
     }
 }

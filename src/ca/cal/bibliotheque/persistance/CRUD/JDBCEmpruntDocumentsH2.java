@@ -1,5 +1,6 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
+import ca.cal.bibliotheque.model.CD;
 import ca.cal.bibliotheque.model.EmpruntDocuments;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
 import ca.cal.bibliotheque.persistance.DB.JDBCException;
@@ -48,5 +49,9 @@ public class JDBCEmpruntDocumentsH2 implements JDBCEmpruntDocuments {
                 ", idClient=" + empruntDocuments.getClient().getId() +
                 ", idDocument=" + empruntDocuments.getDocument().getId() +
                 " WHERE id=" + empruntDocuments.getId() + ";");
+    }
+
+    public void suppression(EmpruntDocuments empruntDocuments) {
+        JDBCBibliotheque.suppression("EMPRUNTDOCUMENT", empruntDocuments.getId());
     }
 }

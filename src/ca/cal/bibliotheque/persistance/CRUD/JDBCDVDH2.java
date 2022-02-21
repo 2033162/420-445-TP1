@@ -1,5 +1,6 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
+import ca.cal.bibliotheque.model.CD;
 import ca.cal.bibliotheque.model.DVD;
 import ca.cal.bibliotheque.model.Documents;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
@@ -47,5 +48,10 @@ public class JDBCDVDH2 implements JDBCDVD {
                 "duree='" + dvd.getDuree() +
                 "', genreFilm='" + dvd.getGenreFilm() + "'" +
                 " WHERE id=" + dvd.getId() + ";");
+    }
+
+    public void suppression(DVD dvd) {
+        JDBCBibliotheque.suppression("DVD", dvd.getId());
+        new JDBCDocumentsH2().suppression(dvd.getDocument());
     }
 }

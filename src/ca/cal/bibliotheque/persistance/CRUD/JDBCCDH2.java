@@ -1,6 +1,7 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
 import ca.cal.bibliotheque.model.CD;
+import ca.cal.bibliotheque.model.Clients;
 import ca.cal.bibliotheque.model.Documents;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
 import ca.cal.bibliotheque.persistance.DB.JDBCException;
@@ -50,5 +51,10 @@ public class JDBCCDH2 implements JDBCCD {
                 "', compositeur='" + cd.getCompositeur() +
                 "', interprete='" + cd.getInterprete() + "'" +
                 " WHERE id=" + cd.getId() + ";");
+    }
+
+    public void suppression(CD cd) {
+        JDBCBibliotheque.suppression("CD", cd.getId());
+        new JDBCDocumentsH2().suppression(cd.getDocument());
     }
 }

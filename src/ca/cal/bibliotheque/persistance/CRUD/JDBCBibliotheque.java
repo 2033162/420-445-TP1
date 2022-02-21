@@ -29,4 +29,16 @@ public class JDBCBibliotheque {
             JDBCException.handleException(e);
         }
     }
+
+    public static void suppression(String nomTable, long idTable) {
+        try(Connection conn = DriverManager.getConnection(JDBCConfig.getDbUrl(),JDBCConfig.getUSER(),JDBCConfig.getPASS());
+            Statement stmt = conn.createStatement();
+        ) {
+            System.out.println("Deleting records into the table...");
+            stmt.executeUpdate("DELETE FROM " + nomTable + " CASCADE WHERE id=" + idTable + ";");
+            System.out.println("Deleted records into the table...");
+        } catch (SQLException e) {
+            JDBCException.handleException(e);
+        }
+    }
 }

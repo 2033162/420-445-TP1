@@ -59,4 +59,8 @@ public class JDBCClientH2 implements JDBCBClient {
                 "', nbrEmpruntEnCour=" + clients.getNbrEmpruntEnCour() +
                 " WHERE id=" + clients.getId() + ";");
     }
+
+    public void suppression(Clients clients) {
+        JDBCBibliotheque.suppression("CLIENT", clients.getId());
+    }
 }

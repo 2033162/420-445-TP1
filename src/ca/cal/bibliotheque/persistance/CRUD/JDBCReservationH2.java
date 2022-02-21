@@ -1,5 +1,6 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
+import ca.cal.bibliotheque.model.CD;
 import ca.cal.bibliotheque.model.Reservation;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
 import ca.cal.bibliotheque.persistance.DB.JDBCException;
@@ -42,5 +43,9 @@ public class JDBCReservationH2 implements JDBCReservation {
                 "', idClient=" + reservation.getClient().getId() +
                 ", idDocument=" + reservation.getDocument().getId() +
                 " WHERE id=" + reservation.getId() + ";");
+    }
+
+    public void suppression(Reservation reservation) {
+        JDBCBibliotheque.suppression("RESERVATION", reservation.getId());
     }
 }

@@ -1,5 +1,6 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
+import ca.cal.bibliotheque.model.Clients;
 import ca.cal.bibliotheque.model.Employe;
 import ca.cal.bibliotheque.model.Fonction;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
@@ -43,5 +44,9 @@ public class JDBCEmployeH2 implements JDBCEmploye {
                 "', prenom='" + employe.getPrenom() +
                 "', fonction='" + employe.getFonction() + "'" +
                 " WHERE id=" + employe.getId() + ";");
+    }
+
+    public void suppression(Employe employe) {
+        JDBCBibliotheque.suppression("EMPLOYE", employe.getId());
     }
 }

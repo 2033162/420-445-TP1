@@ -6,4 +6,5 @@ public interface JDBCBClient {
     void enregistrer(Clients clients);
     Clients getClients(long clientsId);
     void modification(Clients clients);
+    void suppression(Clients clients);
 }

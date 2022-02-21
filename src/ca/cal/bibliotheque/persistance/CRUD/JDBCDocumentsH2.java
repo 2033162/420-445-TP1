@@ -1,5 +1,6 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
+import ca.cal.bibliotheque.model.Clients;
 import ca.cal.bibliotheque.model.Documents;
 import ca.cal.bibliotheque.model.EtatDocument;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
@@ -55,5 +56,9 @@ public class JDBCDocumentsH2 implements JDBCDocuments {
                 "', editeur='" + documents.getEditeur() +
                 "', anneePublication='" + documents.getAnneePublication() + "'" +
                 " WHERE id=" + documents.getId() + ";");
+    }
+
+    public void suppression(Documents documents) {
+        JDBCBibliotheque.suppression("DOCUMENTS", documents.getId());
     }
 }
