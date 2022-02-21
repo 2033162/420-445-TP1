@@ -8,6 +8,10 @@ public class ServiceReservation {
         new JDBCReservationH2().enregistrer(reservation);
     }
 
+    public void modification(Reservation reservation) {
+        new JDBCReservationH2().modification(reservation);
+    }
+
     public Reservation getReservation(long reservationId) {
         return new JDBCReservationH2().getReservation(reservationId);
     }

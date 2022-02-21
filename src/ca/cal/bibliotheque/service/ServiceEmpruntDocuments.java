@@ -8,6 +8,10 @@ public class ServiceEmpruntDocuments {
         new JDBCEmpruntDocumentsH2().enregistrer(empruntDocument);
     }
 
+    public void modification(EmpruntDocuments empruntDocument) {
+        new JDBCEmpruntDocumentsH2().modification(empruntDocument);
+    }
+
     public EmpruntDocuments getEmpruntDocument(long empruntDocumentId) {
         return new JDBCEmpruntDocumentsH2().getEmpruntDocument(empruntDocumentId);
     }

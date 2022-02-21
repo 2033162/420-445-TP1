@@ -35,4 +35,12 @@ public class JDBCReservationH2 implements JDBCReservation {
             return null;
         }
     }
+
+    public void modification(Reservation reservation) {
+        JDBCBibliotheque.modification("UPDATE RESERVATION SET " +
+                "dateReservation='" + reservation.getDateReservationChaine() +
+                "', idClient=" + reservation.getClient().getId() +
+                ", idDocument=" + reservation.getDocument().getId() +
+                " WHERE id=" + reservation.getId() + ";");
+    }
 }

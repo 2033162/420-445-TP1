@@ -39,4 +39,14 @@ public class JDBCEmpruntDocumentsH2 implements JDBCEmpruntDocuments {
             return null;
         }
     }
+
+    public void modification(EmpruntDocuments empruntDocuments) {
+        JDBCBibliotheque.modification("UPDATE EMPRUNTDOCUMENT SET " +
+                "dateInitial='" + empruntDocuments.getDateInitialChaine() +
+                "', dateExpire='" + empruntDocuments.getDateExpireChaine() +
+                "', nbrRappel=" + empruntDocuments.getNbrRappel() +
+                ", idClient=" + empruntDocuments.getClient().getId() +
+                ", idDocument=" + empruntDocuments.getDocument().getId() +
+                " WHERE id=" + empruntDocuments.getId() + ";");
+    }
 }

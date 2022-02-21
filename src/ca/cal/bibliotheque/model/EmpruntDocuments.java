@@ -5,9 +5,9 @@ import java.util.Date;
 
 public class EmpruntDocuments {
     private final long id;
-    private final Date dateInitial;
-    private final Date dateExpire;
-    private final int nbrRappel;
+    private Date dateInitial;
+    private Date dateExpire;
+    private int nbrRappel;
     private final Clients client;
     private final Documents document;
 
@@ -50,6 +50,18 @@ public class EmpruntDocuments {
 
     public int getNbrRappel() {
         return nbrRappel;
+    }
+
+    public void setDateInitial(Date dateInitial) {
+        this.dateInitial = dateInitial;
+    }
+
+    public void setDateExpire(Date dateExpire) {
+        this.dateExpire = dateExpire;
+    }
+
+    public void setNbrRappel(int nbrRappel) {
+        this.nbrRappel = nbrRappel;
     }
 
     @Override

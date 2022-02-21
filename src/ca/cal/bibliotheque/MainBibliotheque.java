@@ -11,7 +11,7 @@ public class MainBibliotheque {
     public static void main(String[] args) throws ParseException {
         //JDBCCreateDB.createDatabase();
 
-        /*var client = new Clients(6,
+        var client = new Clients(1,
                 "John",
                 "Smith",
                 "daragon",
@@ -19,11 +19,11 @@ public class MainBibliotheque {
                 "H05C42",
                 "514-900-5698",
                 new SimpleDateFormat("dd/MM/yyyy").parse("20/02/2022"),
-                0);
+                1);
         ServiceClient serviceClient = new ServiceClient();
         serviceClient.enregistrer(client);
-        var client2 = serviceClient.getClient(6L);
-        System.out.println(client2);*/
+        var client2 = serviceClient.getClient(1L);
+        System.out.println(client2);
 
         /*client.setRue("rancour");
         serviceClient.modification(client);
@@ -79,7 +79,7 @@ public class MainBibliotheque {
 
 
 
-        var document3 = new Documents(50,
+        var document3 = new Documents(1,
                 EtatDocument.EMPRUNTE,
                 Documents.C_LIVRE,
                 "avengers",
@@ -92,23 +92,23 @@ public class MainBibliotheque {
                 "Roman");
         ServiceLivre serviceLivre = new ServiceLivre();
         serviceLivre.enregistrer(livre);
-        var livre2 = serviceLivre.getLivre(50L);
+        var livre2 = serviceLivre.getLivre(1L);
         System.out.println(livre2);
 
         livre.setAnneePublication(2002);
         serviceLivre.modification(livre);
-        var livre3 = serviceLivre.getLivre(50L);
+        var livre3 = serviceLivre.getLivre(1L);
         System.out.println(livre3);
 
 
 
-        /*var employe = new Employe(2,
+        /*var employe = new Employe(10,
                 "bernadette",
                 "carmier",
                 Fonction.GESTIONNAIRE);
         ServiceEmploye serviceEmploye = new ServiceEmploye();
         serviceEmploye.enregistrer(employe);
-        var employe2 = serviceEmploye.getEmploye(2L);
+        var employe2 = serviceEmploye.getEmploye(10L);
         System.out.println(employe2);*/
 
         /*employe.setFonction(Fonction.PREPOSE);
@@ -118,18 +118,28 @@ public class MainBibliotheque {
 
 
 
-        /*var reservation = new Reservation(1,
+        /*var reservation = new Reservation(3,
                 new SimpleDateFormat("dd/MM/yyyy").parse("05/10/2000"),
                 client,
                 document3);
         ServiceReservation serviceReservation = new ServiceReservation();
         serviceReservation.faireReservation(reservation);
-        var reservation2 = serviceReservation.getReservation(1L);
+        var reservation2 = serviceReservation.getReservation(3L);
         System.out.println(reservation2);*/
 
+        /*employe.setFonction(Fonction.PREPOSE);
+        serviceEmploye.modification(employe);
+        var employe3 = serviceEmploye.getEmploye(2L);
+        System.out.println(employe3);*/
+
+        /*reservation.setDateReservation(new SimpleDateFormat("dd/MM/yyyy").parse("15/03/2000"));
+        serviceReservation.modification(reservation);
+        var reservation3 = serviceReservation.getReservation(3L);
+        System.out.println(reservation3);*/
 
 
-        /*var empruntDocument = new EmpruntDocuments(1,
+
+        var empruntDocument = new EmpruntDocuments(1,
                 new SimpleDateFormat("dd/MM/yyyy").parse("15/03/2018"),
                 new SimpleDateFormat("dd/MM/yyyy").parse("04/01/2022"),
                 2,
@@ -138,6 +148,11 @@ public class MainBibliotheque {
         ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments();
         serviceEmpruntDocuments.enregistrer(empruntDocument);
         var empruntDocument2 = serviceEmpruntDocuments.getEmpruntDocument(1L);
-        System.out.println(empruntDocument2);*/
+        System.out.println(empruntDocument2);
+
+        empruntDocument.setNbrRappel(4);
+        serviceEmpruntDocuments.modification(empruntDocument);
+        var empruntDocument3 = serviceEmpruntDocuments.getEmpruntDocument(1L);
+        System.out.println(empruntDocument3);
     }
 }

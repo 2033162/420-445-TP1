@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Reservation {
     private final long id;
-    private final Date dateReservation;
+    private Date dateReservation;
     private final Clients client;
     private final Documents document;
 
@@ -34,6 +34,10 @@ public class Reservation {
 
     public String getDateReservationChaine() {
         return new SimpleDateFormat("yyyy-MM-dd").format(dateReservation);
+    }
+
+    public void setDateReservation(Date dateReservation) {
+        this.dateReservation = dateReservation;
     }
 
     @Override
