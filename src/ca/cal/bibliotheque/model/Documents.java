@@ -6,8 +6,8 @@ public class Documents {
     public static final String C_CD = "CD";
     public static final String C_DVD = "DVD";
 
-    private final String genreDocument;//livre, CD, DVD
-    private EtatDocument etatDocument;//disponible, emprunte
+    private final String genreDocument;
+    private EtatDocument etatDocument;
     private String titre;
     private String auteur;
     private String editeur;

@@ -1,6 +1,5 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
-import ca.cal.bibliotheque.model.CD;
 import ca.cal.bibliotheque.model.Documents;
 import ca.cal.bibliotheque.model.GenreLivre;
 import ca.cal.bibliotheque.model.Livre;

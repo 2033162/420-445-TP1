@@ -1,6 +1,5 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
-import ca.cal.bibliotheque.model.Clients;
 import ca.cal.bibliotheque.model.Employe;
 import ca.cal.bibliotheque.model.Fonction;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;

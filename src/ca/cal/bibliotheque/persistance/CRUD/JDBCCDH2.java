@@ -1,7 +1,6 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
 import ca.cal.bibliotheque.model.CD;
-import ca.cal.bibliotheque.model.Clients;
 import ca.cal.bibliotheque.model.Documents;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
 import ca.cal.bibliotheque.persistance.DB.JDBCException;

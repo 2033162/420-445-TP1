@@ -1,12 +1,13 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
-import ca.cal.bibliotheque.model.Clients;
 import ca.cal.bibliotheque.model.Documents;
 import ca.cal.bibliotheque.model.EtatDocument;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
 import ca.cal.bibliotheque.persistance.DB.JDBCException;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JDBCDocumentsH2 implements JDBCDocuments {
 
@@ -60,5 +61,59 @@ public class JDBCDocumentsH2 implements JDBCDocuments {
 
     public void suppression(Documents documents) {
         JDBCBibliotheque.suppression("DOCUMENTS", documents.getId());
+    }
+
+    public List<Documents> rechercheDocument(String genreDocument, EtatDocument etatDocument, String titre, String auteur, String editeur, int anneePublication) {
+        List<Documents> listeDocuments = new ArrayList<>();
+        String where = "";
+        if (!genreDocument.trim().equals("")) {
+            where += (where.equals("") ? "" : " OR ");
+            where += " (genreDocument='" + genreDocument + "')";
+        }
+
+        if (!titre.trim().equals("")) {
+            where += (where.equals("") ? "" : " OR ");
+            where += " (titre='" + titre + "')";
+        }
+
+        if (!auteur.trim().equals("")) {
+            where += (where.equals("") ? "" : " OR ");
+            where += " (auteur='" + auteur + "')";
+        }
+
+        if (!editeur.trim().equals("")) {
+            where += (where.equals("") ? "" : " OR ");
+            where += " (editeur='" + editeur + "')";
+        }
+
+        if (anneePublication != 0) {
+            where += (where.equals("") ? "" : " OR ");
+            where += " (anneePublication=" + anneePublication + ")";
+        }
+        // Open a connection
+        try(Connection conn = DriverManager.getConnection(JDBCConfig.getDbUrl(),JDBCConfig.getUSER(),JDBCConfig.getPASS());
+            PreparedStatement ps = conn.prepareStatement("SELECT * from DOCUMENTS WHERE " + where);) {
+
+            // NOTEZ le try à l'intérieur du try
+            try (ResultSet rs = ps.executeQuery();) {
+                do {
+                    rs.next();
+                    Documents documents = new Documents(
+                            rs.getLong("id"),
+                            EtatDocument.get(rs.getString("etatDocument")),
+                            rs.getString("genreDocument"),
+                            rs.getString("titre"),
+                            rs.getString("auteur"),
+                            rs.getString("editeur"),
+                            rs.getInt("anneePublication")
+                    );
+                    listeDocuments.add(documents);
+                } while (!rs.last());
+            }
+        } catch (SQLException e) {
+            JDBCException.handleException(e);
+            return null;
+        }
+        return listeDocuments;
     }
 }

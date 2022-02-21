@@ -6,6 +6,7 @@ import ca.cal.bibliotheque.service.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 public class MainBibliotheque {
 
@@ -13,6 +14,7 @@ public class MainBibliotheque {
         //JDBCCreateDB.createDatabase();
 
 
+        ServiceDocument serviceDocument = new ServiceDocument();
         ServiceClient serviceClient = new ServiceClient();
         ServiceCD serviceCD = new ServiceCD();
         ServiceDVD serviceDVD = new ServiceDVD();
@@ -171,6 +173,19 @@ public class MainBibliotheque {
         serviceEmpruntDocuments.modification(empruntDocument);
         var empruntDocument3 = serviceEmpruntDocuments.getEmpruntDocument(idEmpruntDocuments);
         System.out.println(empruntDocument3);
+
+
+        System.out.println("\nLISTE DOCUMENTS :");
+        List<Documents> listeDocuments = serviceDocument.rechercheDocument(Documents.C_LIVRE,
+                EtatDocument.DISPONIBLE,
+                "harry potter",
+                "",
+                "",
+                0);
+        listeDocuments.forEach((document) -> {
+            System.out.println(document.toStringDocument());
+        });
+        System.out.println();
 
 
         var empruntDocument4 = serviceEmpruntDocuments.getEmpruntDocument(idEmpruntDocuments);

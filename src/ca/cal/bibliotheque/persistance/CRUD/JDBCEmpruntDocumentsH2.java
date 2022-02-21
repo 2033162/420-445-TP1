@@ -1,11 +1,14 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
-import ca.cal.bibliotheque.model.CD;
+import ca.cal.bibliotheque.model.Documents;
 import ca.cal.bibliotheque.model.EmpruntDocuments;
+import ca.cal.bibliotheque.model.EtatDocument;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
 import ca.cal.bibliotheque.persistance.DB.JDBCException;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JDBCEmpruntDocumentsH2 implements JDBCEmpruntDocuments {
     public void enregistrer(EmpruntDocuments empruntDocuments) {
@@ -53,5 +56,49 @@ public class JDBCEmpruntDocumentsH2 implements JDBCEmpruntDocuments {
 
     public void suppression(EmpruntDocuments empruntDocuments) {
         JDBCBibliotheque.suppression("EMPRUNTDOCUMENT", empruntDocuments.getId());
+    }
+
+    public long getMaxId() {
+        // Open a connection
+        try(Connection conn = DriverManager.getConnection(JDBCConfig.getDbUrl(),JDBCConfig.getUSER(),JDBCConfig.getPASS());
+            PreparedStatement ps = conn.prepareStatement("SELECT max(id) as maxId from DOCUMENTS");) {
+
+            // NOTEZ le try à l'intérieur du try
+            try (ResultSet rs = ps.executeQuery();) {
+                rs.next();
+                return rs.getLong("maxId");
+            }
+        } catch (SQLException e) {
+            JDBCException.handleException(e);
+            return 0;
+        }
+    }
+
+    public List<EmpruntDocuments> getClientEmpruntRetard(long clientId) {
+        List<EmpruntDocuments> listeEmpruntDoc = new ArrayList<>();
+        // Open a connection
+        try(Connection conn = DriverManager.getConnection(JDBCConfig.getDbUrl(),JDBCConfig.getUSER(),JDBCConfig.getPASS());
+            PreparedStatement ps = conn.prepareStatement("SELECT * from DOCUMENTS WHERE clientId=? AND dateExpire < CURRENT_DATE()");) {
+
+            ps.setLong(1, clientId);
+
+            // NOTEZ le try à l'intérieur du try
+            try (ResultSet rs = ps.executeQuery();) {
+                do {
+                    rs.next();
+                    EmpruntDocuments empruntDocuments = new EmpruntDocuments(rs.getLong("id"),
+                            rs.getDate("dateInitial"),
+                            rs.getDate("dateExpire"),
+                            rs.getInt("nbrRappel"),
+                            new JDBCClientH2().getClients(rs.getInt("idClient")),
+                            new JDBCDocumentsH2().getDocuments(rs.getInt("idDocument")));
+                    listeEmpruntDoc.add(empruntDocuments);
+                } while (!rs.last());
+            }
+        } catch (SQLException e) {
+            JDBCException.handleException(e);
+            return null;
+        }
+        return listeEmpruntDoc;
     }
 }
