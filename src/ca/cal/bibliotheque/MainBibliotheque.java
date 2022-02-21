@@ -176,7 +176,7 @@ public class MainBibliotheque {
 
 
         System.out.println("\nLISTE DOCUMENTS :");
-        List<Documents> listeDocuments = serviceDocument.rechercheDocument(Documents.C_LIVRE,
+        List<Documents> listeDocuments = serviceDocument.rechercheDocument("",
                 EtatDocument.DISPONIBLE,
                 "harry potter",
                 "",
@@ -186,6 +186,11 @@ public class MainBibliotheque {
             System.out.println(document.toStringDocument());
         });
         System.out.println();
+
+
+
+        serviceEmpruntDocuments.faireEmprunt(client1, document1);
+
 
 
         var empruntDocument4 = serviceEmpruntDocuments.getEmpruntDocument(idEmpruntDocuments);

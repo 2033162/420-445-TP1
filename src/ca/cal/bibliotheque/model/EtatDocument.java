@@ -7,7 +7,7 @@ public enum EtatDocument {
     DISPONIBLE("DISPONIBLE"),
     RESERVE("RESERVE"),
     EMPRUNTE("EMPRUNTE"),
-    ENDOMMAGE("ENDOMAGE");
+    ENDOMMAGE("ENDOMMAGE");
 
     private String nomEtatDocument;
     EtatDocument(String nomEtatDocument) {

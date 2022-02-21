@@ -78,7 +78,7 @@ public class JDBCEmpruntDocumentsH2 implements JDBCEmpruntDocuments {
         List<EmpruntDocuments> listeEmpruntDoc = new ArrayList<>();
         // Open a connection
         try(Connection conn = DriverManager.getConnection(JDBCConfig.getDbUrl(),JDBCConfig.getUSER(),JDBCConfig.getPASS());
-            PreparedStatement ps = conn.prepareStatement("SELECT * from DOCUMENTS WHERE clientId=? AND dateExpire < CURRENT_DATE()");) {
+            PreparedStatement ps = conn.prepareStatement("SELECT * from EMPRUNTDOCUMENT WHERE idClient=? AND dateExpire < CURRENT_DATE()");) {
 
             ps.setLong(1, clientId);
 

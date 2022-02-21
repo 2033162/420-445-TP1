@@ -28,7 +28,7 @@ public class ServiceEmpruntDocuments {
                 long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
                 totalFrais = totalFrais + (amende * diff);
             };
-            System.out.println("Emprunt interdit pour cause des amendes " + totalFrais);
+            System.out.println("\nEmprunt interdit pour cause des amendes " + totalFrais + "$ \n");
         }
         else {
             double tarifEmprunt;

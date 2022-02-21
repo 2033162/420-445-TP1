@@ -67,27 +67,27 @@ public class JDBCDocumentsH2 implements JDBCDocuments {
         List<Documents> listeDocuments = new ArrayList<>();
         String where = "";
         if (!genreDocument.trim().equals("")) {
-            where += (where.equals("") ? "" : " OR ");
+            where += (where.equals("") ? "" : " AND ");
             where += " (genreDocument='" + genreDocument + "')";
         }
 
         if (!titre.trim().equals("")) {
-            where += (where.equals("") ? "" : " OR ");
+            where += (where.equals("") ? "" : " AND ");
             where += " (titre='" + titre + "')";
         }
 
         if (!auteur.trim().equals("")) {
-            where += (where.equals("") ? "" : " OR ");
+            where += (where.equals("") ? "" : " AND ");
             where += " (auteur='" + auteur + "')";
         }
 
         if (!editeur.trim().equals("")) {
-            where += (where.equals("") ? "" : " OR ");
+            where += (where.equals("") ? "" : " AND ");
             where += " (editeur='" + editeur + "')";
         }
 
         if (anneePublication != 0) {
-            where += (where.equals("") ? "" : " OR ");
+            where += (where.equals("") ? "" : " AND ");
             where += " (anneePublication=" + anneePublication + ")";
         }
         // Open a connection
@@ -96,8 +96,7 @@ public class JDBCDocumentsH2 implements JDBCDocuments {
 
             // NOTEZ le try à l'intérieur du try
             try (ResultSet rs = ps.executeQuery();) {
-                do {
-                    rs.next();
+                while (rs.next()) {
                     Documents documents = new Documents(
                             rs.getLong("id"),
                             EtatDocument.get(rs.getString("etatDocument")),
@@ -108,7 +107,7 @@ public class JDBCDocumentsH2 implements JDBCDocuments {
                             rs.getInt("anneePublication")
                     );
                     listeDocuments.add(documents);
-                } while (!rs.last());
+                }
             }
         } catch (SQLException e) {
             JDBCException.handleException(e);
