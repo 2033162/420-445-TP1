@@ -1,8 +1,6 @@
 package ca.cal.bibliotheque.persistance.CRUD;
 
-import ca.cal.bibliotheque.model.Documents;
 import ca.cal.bibliotheque.model.EmpruntDocuments;
-import ca.cal.bibliotheque.model.EtatDocument;
 import ca.cal.bibliotheque.persistance.DB.JDBCConfig;
 import ca.cal.bibliotheque.persistance.DB.JDBCException;
 
