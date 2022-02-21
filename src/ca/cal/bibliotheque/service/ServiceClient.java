@@ -12,6 +12,10 @@ public class ServiceClient {
         new JDBCClientH2().modification(clients);
     }
 
+    public void suppression(Clients clients) {
+        new JDBCClientH2().suppression(clients);
+    }
+
     public Clients getClient(long clientId) {
         return new JDBCClientH2().getClients(clientId);
     }

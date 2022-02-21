@@ -12,6 +12,10 @@ public class ServiceCD {
         new JDBCCDH2().modification(cd);
     }
 
+    public void suppression(CD cd) {
+        new JDBCCDH2().suppression(cd);
+    }
+
     public CD getCD(long cdId) {
         return new JDBCCDH2().getCD(cdId);
     }

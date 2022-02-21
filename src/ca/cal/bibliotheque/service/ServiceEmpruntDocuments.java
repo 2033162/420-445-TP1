@@ -12,6 +12,10 @@ public class ServiceEmpruntDocuments {
         new JDBCEmpruntDocumentsH2().modification(empruntDocument);
     }
 
+    public void suppression(EmpruntDocuments empruntDocument) {
+        new JDBCEmpruntDocumentsH2().suppression(empruntDocument);
+    }
+
     public EmpruntDocuments getEmpruntDocument(long empruntDocumentId) {
         return new JDBCEmpruntDocumentsH2().getEmpruntDocument(empruntDocumentId);
     }

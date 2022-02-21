@@ -12,6 +12,10 @@ public class ServiceLivre {
         new JDBCLivreH2().modification(livre);
     }
 
+    public void suppression(Livre livre) {
+        new JDBCLivreH2().suppression(livre);
+    }
+
     public Livre getLivre(long livreId) {
         return new JDBCLivreH2().getLivre(livreId);
     }

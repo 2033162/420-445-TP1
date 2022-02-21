@@ -11,7 +11,7 @@ public class MainBibliotheque {
     public static void main(String[] args) throws ParseException {
         //JDBCCreateDB.createDatabase();
 
-        var client = new Clients(1,
+        /*var client = new Clients(1,
                 "John",
                 "Smith",
                 "daragon",
@@ -23,7 +23,7 @@ public class MainBibliotheque {
         ServiceClient serviceClient = new ServiceClient();
         serviceClient.enregistrer(client);
         var client2 = serviceClient.getClient(1L);
-        System.out.println(client2);
+        System.out.println(client2);*/
 
         /*client.setRue("rancour");
         serviceClient.modification(client);
@@ -79,7 +79,7 @@ public class MainBibliotheque {
 
 
 
-        var document3 = new Documents(1,
+        /*var document3 = new Documents(1,
                 EtatDocument.EMPRUNTE,
                 Documents.C_LIVRE,
                 "avengers",
@@ -98,7 +98,7 @@ public class MainBibliotheque {
         livre.setAnneePublication(2002);
         serviceLivre.modification(livre);
         var livre3 = serviceLivre.getLivre(1L);
-        System.out.println(livre3);
+        System.out.println(livre3);*/
 
 
 
@@ -154,5 +154,53 @@ public class MainBibliotheque {
         serviceEmpruntDocuments.modification(empruntDocument);
         var empruntDocument3 = serviceEmpruntDocuments.getEmpruntDocument(1L);
         System.out.println(empruntDocument3);*/
+
+
+        /*ServiceEmpruntDocuments serviceEmpruntDocuments = new ServiceEmpruntDocuments();
+        var empruntDocument4 = serviceEmpruntDocuments.getEmpruntDocument(1L);
+        serviceEmpruntDocuments.suppression(empruntDocument4);
+        System.out.println(empruntDocument4);*/
+
+
+
+        /*ServiceReservation serviceReservation = new ServiceReservation();
+        var reservation4 = serviceReservation.getReservation(3L);
+        serviceReservation.suppression(reservation4);
+        System.out.println(reservation4);*/
+
+
+
+        /*ServiceEmploye serviceEmploye = new ServiceEmploye();
+        var employe4 = serviceEmploye.getEmploye(1L);
+        serviceEmploye.suppression(employe4);
+        System.out.println(employe4);*/
+
+
+
+        /*ServiceClient serviceClient = new ServiceClient();
+        var client4 = serviceClient.getClient(20L);
+        serviceClient.suppression(client4);
+        System.out.println(client4);*/
+
+
+
+        /*ServiceCD serviceCD = new ServiceCD();
+        var cd4 = serviceCD.getCD(2L);
+        serviceCD.suppression(cd4);
+        System.out.println(cd4);*/
+
+
+
+        /*ServiceDVD serviceDVD = new ServiceDVD();
+        var dvd4 = serviceDVD.getDVD(3L);
+        serviceDVD.suppression(dvd4);
+        System.out.println(dvd4);*/
+
+
+
+        ServiceLivre serviceLivre = new ServiceLivre();
+        var livre4 = serviceLivre.getLivre(52L);
+        serviceLivre.suppression(livre4);
+        System.out.println(livre4);
     }
 }

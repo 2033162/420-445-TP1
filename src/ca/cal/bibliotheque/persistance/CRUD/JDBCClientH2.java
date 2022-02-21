@@ -61,6 +61,6 @@ public class JDBCClientH2 implements JDBCBClient {
     }
 
     public void suppression(Clients clients) {
-        JDBCBibliotheque.suppression("CLIENT", clients.getId());
+        JDBCBibliotheque.suppression("CLIENTS", clients.getId());
     }
 }

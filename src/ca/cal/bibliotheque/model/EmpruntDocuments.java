@@ -72,6 +72,7 @@ public class EmpruntDocuments {
                 ", dateExpire=" + dateExpire +
                 ", nbrRappel=" + nbrRappel +
                 ", client=" + client +
+                ", document=" + document.toStringDocument() +
                 '}';
     }
 }

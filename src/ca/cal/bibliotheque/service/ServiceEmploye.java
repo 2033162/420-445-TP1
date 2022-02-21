@@ -12,6 +12,10 @@ public class ServiceEmploye {
         new JDBCEmployeH2().modification(employe);
     }
 
+    public void suppression(Employe employe) {
+        new JDBCEmployeH2().suppression(employe);
+    }
+
     public Employe getEmploye(long employeId) {
         return new JDBCEmployeH2().getEmploye(employeId);
     }

@@ -46,6 +46,7 @@ public class Reservation {
                 "id=" + id +
                 ", dateReservation=" + dateReservation +
                 ", client=" + client +
+                ", document=" + document.toStringDocument() +
                 '}';
     }
 }

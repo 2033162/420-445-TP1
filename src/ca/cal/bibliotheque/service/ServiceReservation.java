@@ -12,6 +12,10 @@ public class ServiceReservation {
         new JDBCReservationH2().modification(reservation);
     }
 
+    public void suppression(Reservation reservation) {
+        new JDBCReservationH2().suppression(reservation);
+    }
+
     public Reservation getReservation(long reservationId) {
         return new JDBCReservationH2().getReservation(reservationId);
     }

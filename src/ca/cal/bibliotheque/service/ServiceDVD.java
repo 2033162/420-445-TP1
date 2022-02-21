@@ -12,6 +12,10 @@ public class ServiceDVD {
         new JDBCDVDH2().modification(dvd);
     }
 
+    public void suppression(DVD dvd) {
+        new JDBCDVDH2().suppression(dvd);
+    }
+
     public DVD getDVD(long dvdId) {
         return new JDBCDVDH2().getDVD(dvdId);
     }

@@ -34,9 +34,9 @@ public class JDBCBibliotheque {
         try(Connection conn = DriverManager.getConnection(JDBCConfig.getDbUrl(),JDBCConfig.getUSER(),JDBCConfig.getPASS());
             Statement stmt = conn.createStatement();
         ) {
-            System.out.println("Deleting records into the table...");
+            System.out.println("Deleting records into the table " + nomTable + "...");
             stmt.executeUpdate("DELETE FROM " + nomTable + " CASCADE WHERE id=" + idTable + ";");
-            System.out.println("Deleted records into the table...");
+            System.out.println("Deleted records into the table " + nomTable + "...");
         } catch (SQLException e) {
             JDBCException.handleException(e);
         }
